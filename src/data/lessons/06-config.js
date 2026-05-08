@@ -6,12 +6,12 @@ export const configLesson = {
   explain: [
     "vite.config.js 可以导出对象，也可以导出函数；当配置需要根据 command 或 mode 切换时，函数形式更清晰。",
     "defineConfig 不改变运行时行为，主要提供类型提示和更稳定的编辑体验。",
-    "部署到 GitHub Pages 的子路径项目通常需要设置 base，否则生产资源会从域名根路径加载。"
+    "应用部署在域名子路径下时通常需要设置 base，否则生产资源会默认从域名根路径加载。"
   ],
   code: `import { defineConfig } from "vite";
 
 export default defineConfig(({ command, mode }) => ({
-  base: "/vite-practice-lab/",
+  base: "/app/",
   server: {
     open: command === "serve" && mode === "development"
   }
@@ -31,7 +31,7 @@ export default defineConfig(({ command, mode }) => ({
       answer: "server 配开发服务器，build 配生产构建，preview 配本地预览生产产物的静态服务。"
     },
     {
-      question: "GitHub Pages 子路径部署最容易漏掉什么？",
+      question: "非根路径部署最容易漏掉什么？",
       answer: "最容易漏掉 base，导致 JS、CSS、manifest 或图标资源从域名根路径加载而 404。"
     }
   ]
