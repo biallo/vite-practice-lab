@@ -43,6 +43,26 @@ function render() {
   `;
 }
 
+function getLessonListScroll() {
+  const lessonList = document.querySelector(".lesson-list");
+
+  return {
+    left: lessonList?.scrollLeft ?? 0,
+    top: lessonList?.scrollTop ?? 0
+  };
+}
+
+function restoreLessonListScroll(scrollPosition) {
+  const lessonList = document.querySelector(".lesson-list");
+
+  if (!lessonList) {
+    return;
+  }
+
+  lessonList.scrollTop = scrollPosition.top;
+  lessonList.scrollLeft = scrollPosition.left;
+}
+
 function keepActiveLessonVisible() {
   const lessonList = document.querySelector(".lesson-list");
   const activeButton = lessonList?.querySelector(".lesson-button.is-active");
@@ -75,21 +95,13 @@ function keepActiveLessonVisible() {
 }
 
 function setActiveLesson(lessonId) {
-  const previousLessonList = document.querySelector(".lesson-list");
-  const lessonListScrollTop = previousLessonList?.scrollTop ?? 0;
-  const lessonListScrollLeft = previousLessonList?.scrollLeft ?? 0;
+  const lessonListScroll = getLessonListScroll();
 
   state.activeLessonId = lessonId;
   state.activeTab = "explain";
   saveActiveLesson(lessonId);
   render();
-
-  const lessonList = document.querySelector(".lesson-list");
-
-  if (lessonList) {
-    lessonList.scrollTop = lessonListScrollTop;
-    lessonList.scrollLeft = lessonListScrollLeft;
-  }
+  restoreLessonListScroll(lessonListScroll);
 
   keepActiveLessonVisible();
 
@@ -99,8 +111,15 @@ function setActiveLesson(lessonId) {
 }
 
 function setActiveTab(tabId) {
+  if (state.activeTab === tabId) {
+    return;
+  }
+
+  const lessonListScroll = getLessonListScroll();
+
   state.activeTab = tabId;
   render();
+  restoreLessonListScroll(lessonListScroll);
 }
 
 function markComplete() {
@@ -115,7 +134,11 @@ function markComplete() {
     [activeLesson.id]: true
   };
   saveProgress(state.progress);
+
+  const lessonListScroll = getLessonListScroll();
+
   render();
+  restoreLessonListScroll(lessonListScroll);
 }
 
 root.addEventListener("click", (event) => {
