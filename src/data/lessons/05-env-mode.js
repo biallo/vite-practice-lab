@@ -8,8 +8,13 @@ export const envModeLesson = {
     "import.meta.env.MODE 表示当前模式，DEV 和 PROD 可以用于开发或生产分支判断。",
     ".env、.env.local、.env.[mode] 可以组合使用，越具体的文件优先级越高。"
   ],
-  code: `console.log(import.meta.env.MODE);
+  code: `// 当前 Vite mode，例如 development、production、staging。
+console.log(import.meta.env.MODE);
+
+// DEV / PROD 适合写开发或生产分支。
 console.log(import.meta.env.DEV);
+
+// 只有 VITE_ 前缀变量会暴露给浏览器端代码。
 console.log(import.meta.env.VITE_API_BASE);`,
   codeLanguage: "javascript",
   review: [

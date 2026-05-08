@@ -10,9 +10,11 @@ export const advancedViteLesson = {
   ],
   code: `import { build, createServer, resolveConfig } from "vite";
 
+// 读取并合并最终配置，适合自定义工具先理解项目配置。
 const config = await resolveConfig({}, "build");
 console.log(config.root);
 
+// Library Mode 关注库入口、库名和输出格式。
 await build({
   build: {
     lib: {
@@ -23,6 +25,7 @@ await build({
   }
 });
 
+// JavaScript API 可以把 Vite dev server 嵌入自定义 Node 流程。
 const server = await createServer({ server: { port: 5173 } });
 await server.listen();
 server.printUrls();`,

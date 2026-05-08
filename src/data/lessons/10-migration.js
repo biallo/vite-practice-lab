@@ -8,7 +8,10 @@ export const migrationLesson = {
     "Webpack 的 loader 链在 Vite 中通常对应内置能力、插件或直接使用浏览器原生能力。",
     "迁移时先保证入口、路径别名、环境变量和静态资源工作，再逐步替换构建优化与插件。"
   ],
-  code: `// Webpack: entry -> bundle -> html plugin
+  code: `// Webpack 常以 JS entry 为中心，再由插件生成或注入 HTML。
+// Webpack: entry -> bundle -> html plugin
+
+// Vite 以 index.html 为入口，再从 module script 进入源码模块图。
 // Vite: index.html -> module script -> source modules`,
   codeLanguage: "javascript",
   review: [

@@ -9,6 +9,7 @@ export const deploymentLesson = {
     "HTML 通常不做长期强缓存，带 hash 的 JS、CSS 和图片可以使用长期缓存策略。"
   ],
   code: `export default defineConfig({
+  // 项目部署在 https://<user>.github.io/vite-practice-lab/ 时需要这个前缀。
   base: "/vite-practice-lab/"
 });`,
   codeLanguage: "javascript",

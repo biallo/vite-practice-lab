@@ -8,7 +8,9 @@ export const esmHmrLesson = {
     "HMR 通过 import.meta.hot 暴露运行时 API，框架插件会在内部接管更新边界，普通应用也可以手写 accept 回调。",
     "依赖和源码的处理路径不同：依赖更稳定，会进入预构建；源码变化频繁，保持按需转换。"
   ],
-  code: `if (import.meta.hot) {
+  code: `// import.meta.hot 只在开发环境存在，生产代码不要依赖它。
+if (import.meta.hot) {
+  // accept 表示当前模块可以接收热更新，不必整页刷新。
   import.meta.hot.accept((nextModule) => {
     console.log("module updated", nextModule);
   });

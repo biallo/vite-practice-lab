@@ -15,14 +15,17 @@ import { defineConfig } from "vite";
 export default defineConfig({
   resolve: {
     alias: {
+      // Vite 运行时会用这个别名解析 @/xxx 到 src/xxx。
       "@": fileURLToPath(new URL("./src", import.meta.url))
     }
   }
 });
 
 // vite-env.d.ts
+// 引入 Vite 客户端类型，包括 import.meta.env 和资源导入声明。
 /// <reference types="vite/client" />
 
+// 为自定义 VITE_ 环境变量补类型。
 interface ImportMetaEnv {
   readonly VITE_API_BASE: string;
 }`,

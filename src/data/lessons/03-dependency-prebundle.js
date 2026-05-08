@@ -10,7 +10,10 @@ export const dependencyPrebundleLesson = {
   ],
   code: `export default {
   optimizeDeps: {
+    // include 用于提前预构建自动扫描没有发现的依赖。
     include: ["lodash-es"],
+
+    // exclude 用于跳过不适合预构建的依赖，例如本地联调包。
     exclude: ["some-local-linked-package"]
   }
 };`,

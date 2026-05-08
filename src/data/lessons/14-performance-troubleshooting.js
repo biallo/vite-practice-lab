@@ -8,7 +8,10 @@ export const performanceTroubleshootingLesson = {
     "依赖缓存异常时可以用 vite --force 重新优化依赖，也可以检查 lockfile、配置、linked package 和浏览器强缓存。",
     "生产体积排查应先看 Network 和构建输出，再判断是否需要动态 import、手动分包或替换过重依赖。"
   ],
-  code: `npm run dev -- --force
+  code: `# 重新生成依赖预构建缓存，排查 node_modules/.vite 缓存异常。
+npm run dev -- --force
+
+# 输出更详细的构建调试信息，辅助定位插件和构建配置问题。
 npm run build -- --debug
 
 # 浏览器检查重点：

@@ -10,14 +10,24 @@ export const backendIntegrationLesson = {
   ],
   code: `export default defineConfig({
   server: {
+    // 允许后端页面直接加载 Vite dev server 的模块和 HMR 客户端。
+    cors: {
+      origin: "http://localhost:3000"
+    },
+
     proxy: {
+      // 浏览器请求 /api/users，Vite 转发到 http://localhost:3000/api/users。
       "/api": {
         target: "http://localhost:3000",
+
+        // 修改代理请求的 Origin，减少后端基于 Host/Origin 的拦截。
         changeOrigin: true
       }
     }
   },
+
   build: {
+    // 生产资源带 hash，manifest 让后端模板能找到真实文件名。
     manifest: true
   }
 });`,

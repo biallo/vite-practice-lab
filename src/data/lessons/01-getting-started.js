@@ -8,15 +8,16 @@ export const gettingStartedLesson = {
     "根目录的 index.html 是应用入口，Vite 会解析其中的 module script，并把 /src/main.js 纳入模块图。",
     "npm run dev 启动开发服务器，npm run build 生成生产产物，npm run preview 用本地静态服务检查 dist。"
   ],
-  code: `npm install
+  code: `# 安装 package.json 中声明的依赖
+npm install
 
-// vite
+# 启动 Vite 开发服务器，面向本地开发和 HMR
 npm run dev
 
-// vite build
+# 生成 dist 生产产物
 npm run build
 
-// vite preview
+# 用本地静态服务预览 dist，不等同于 dev server
 npm run preview`,
   codeLanguage: "bash",
   review: [

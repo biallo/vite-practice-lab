@@ -8,14 +8,17 @@ export const globDynamicImportLesson = {
     "默认生成的是懒加载函数，调用时才会通过动态 import 拉取模块，生产构建中通常会形成独立 chunk。",
     "glob 参数必须是字面量，不能把运行时变量拼进匹配表达式；需要立即加载时可以使用 eager 选项。"
   ],
-  code: `const pages = import.meta.glob("./pages/*.js");
+  code: `// 默认返回懒加载函数，适合页面、文章、路由等按需加载。
+const pages = import.meta.glob("./pages/*.js");
 
 for (const [path, loadPage] of Object.entries(pages)) {
+  // 调用 loadPage 时才会真正动态 import 对应模块。
   loadPage().then((module) => {
     console.log(path, module.default);
   });
 }
 
+// eager 会把匹配到的模块改成立即加载，适合需要启动时执行的模块。
 const eagerPages = import.meta.glob("./pages/*.js", {
   eager: true,
   import: "default"

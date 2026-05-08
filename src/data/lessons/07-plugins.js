@@ -10,11 +10,16 @@ export const pluginsLesson = {
   ],
   code: `function virtualMessagePlugin() {
   const id = "virtual:message";
+
   return {
     name: "virtual-message",
+
+    // resolveId 把用户导入的模块 ID 映射到插件内部 ID。
     resolveId(source) {
       return source === id ? "\\0" + id : null;
     },
+
+    // load 为虚拟模块提供源码，不需要真实文件存在。
     load(resolvedId) {
       return resolvedId === "\\0" + id
         ? "export default 'hello vite'"

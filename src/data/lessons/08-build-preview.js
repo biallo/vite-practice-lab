@@ -8,7 +8,10 @@ export const buildPreviewLesson = {
     "构建阶段会进行 tree-shaking、代码分割、资源 hash 和压缩，最终产物应通过静态服务器访问。",
     "npm run preview 不是开发服务器，它用于检查生产构建结果是否能在接近真实部署的环境中运行。"
   ],
-  code: `npm run build
+  code: `# 先生成 dist 生产产物。
+npm run build
+
+# 再用静态服务检查 dist 的资源路径和运行结果。
 npm run preview`,
   codeLanguage: "bash",
   review: [

@@ -11,8 +11,11 @@ export const configLesson = {
   code: `import { defineConfig } from "vite";
 
 export default defineConfig(({ command, mode }) => ({
+  // 部署在 https://example.com/app/ 时，生产资源也应以 /app/ 为前缀。
   base: "/app/",
+
   server: {
+    // 只在开发服务启动时自动打开浏览器。
     open: command === "serve" && mode === "development"
   }
 }));`,

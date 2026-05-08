@@ -10,6 +10,7 @@ export const browserCompatibilityLesson = {
   ],
   code: `export default defineConfig({
   build: {
+    // 使用 Vite 默认推荐的现代浏览器兼容范围。
     target: "baseline-widely-available"
   }
 });
@@ -17,6 +18,7 @@ export const browserCompatibilityLesson = {
 // 也可以按项目需要指定更明确的目标：
 export default defineConfig({
   build: {
+    // 明确列出目标浏览器时，要和项目真实支持矩阵保持一致。
     target: ["chrome111", "firefox114", "safari16.4"]
   }
 });`,

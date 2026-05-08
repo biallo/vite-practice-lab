@@ -8,9 +8,13 @@ export const assetsCssLesson = {
     "src 内通过 import 或 CSS url() 引用的资源会进入构建图，生产构建时会自动加 hash 以便长期缓存。",
     "CSS 可以直接从 JS 中 import，Vite 会处理 @import、url()、CSS Modules 和 PostCSS 配置。"
   ],
-  code: `import "./style.css";
+  code: `// CSS 可以直接从 JS 入口导入，Vite 会把它纳入模块图。
+import "./style.css";
+
+// src 内资源通过 import 引用时，生产构建会得到带 hash 的 URL。
 import logoUrl from "./assets/logo.svg";
 
+// 运行时拿到的是最终可访问的资源地址。
 document.querySelector("img").src = logoUrl;`,
   codeLanguage: "javascript",
   review: [
