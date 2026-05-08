@@ -1,6 +1,6 @@
 # Vite Practice Lab
 
-一个用于 Vite 8 的前端练习项目。
+一个用于学习 Vite 8 的前端练习项目。
 
 ## 在线预览
 
