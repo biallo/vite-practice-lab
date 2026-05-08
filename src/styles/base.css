@@ -1,0 +1,44 @@
+:root {
+  color: #213547;
+  background: #eef1f6;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --panel: #ffffff;
+  --panel-soft: #f7f8fb;
+  --text: #182033;
+  --muted: #667085;
+  --line: #d9dee8;
+  --brand: #646cff;
+  --brand-strong: #4f46e5;
+  --accent: #41d1ff;
+  --success: #168a54;
+  --code: #161b22;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  min-height: 100vh;
+}
