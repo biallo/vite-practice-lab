@@ -135,6 +135,10 @@ button {
   padding: 0 12px 18px;
 }
 
+.lesson-select-field {
+  display: none;
+}
+
 .lesson-button {
   display: grid;
   grid-template-columns: 42px minmax(0, 1fr) auto;
@@ -434,36 +438,72 @@ code {
   }
 
   .brand {
-    padding: 18px;
+    padding: 16px 18px 12px;
+    border-bottom: 0;
   }
 
   .progress-panel {
-    margin: 0 18px 14px;
+    margin: 0 18px 12px;
+    padding: 12px 14px;
+  }
+
+  .progress-copy {
+    margin-bottom: 8px;
+  }
+
+  .progress-copy span {
+    font-size: 20px;
+  }
+
+  .lesson-select-field {
+    display: grid;
+    gap: 7px;
+    margin: 0 18px 16px;
+  }
+
+  .lesson-select-field span {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 780;
+  }
+
+  .lesson-select {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 40px 0 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--text);
+    background:
+      linear-gradient(45deg, transparent 50%, var(--brand-strong) 50%) right 17px
+        center / 7px 7px no-repeat,
+      linear-gradient(135deg, var(--brand-strong) 50%, transparent 50%) right
+        12px center / 7px 7px no-repeat,
+      var(--panel);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 720;
+    appearance: none;
+  }
+
+  .lesson-select:focus {
+    border-color: var(--brand-strong);
+    outline: 3px solid #646cff2e;
   }
 
   .lesson-list {
-    flex-direction: row;
-    overflow-x: auto;
-    padding: 0 18px 18px;
-    scroll-snap-type: x proximity;
-  }
-
-  .lesson-button {
-    grid-template-columns: 38px minmax(190px, 240px);
-    min-width: 280px;
-    scroll-snap-align: start;
-  }
-
-  .lesson-state {
     display: none;
   }
 
   .workspace {
-    padding: 24px 18px 36px;
+    padding: 20px 16px 36px;
   }
 
   .lesson-hero {
     flex-direction: column;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
   }
 
   .lesson-tabs {
@@ -486,12 +526,13 @@ code {
     font-size: 18px;
   }
 
-  .lesson-button {
-    min-width: 250px;
+  .brand img {
+    width: 32px;
+    height: 32px;
   }
 
   .lesson-hero h2 {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .lesson-hero p:not(.eyebrow) {

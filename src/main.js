@@ -139,5 +139,13 @@ root.addEventListener("click", (event) => {
   }
 });
 
+root.addEventListener("change", (event) => {
+  const lessonSelect = event.target.closest("[data-lesson-select]");
+
+  if (lessonSelect) {
+    setActiveLesson(lessonSelect.value);
+  }
+});
+
 render();
 keepActiveLessonVisible();

@@ -23,6 +23,25 @@ export function renderSidebar({ lessons, activeLesson, progress, completedCount 
         </div>
       </div>
 
+      <label class="lesson-select-field">
+        <span>当前课程</span>
+        <select class="lesson-select" data-lesson-select aria-label="选择课程">
+          ${lessons
+            .map((lesson, index) => {
+              const isActive = lesson.id === activeLesson.id;
+              const isDone = progress[lesson.id];
+              const title = `${String(index + 1).padStart(2, "0")}. ${lesson.title.replace(/^\d+\.\s*/, "")}${isDone ? " - 已完成" : ""}`;
+
+              return `
+                <option value="${escapeHtml(lesson.id)}" ${isActive ? "selected" : ""}>
+                  ${escapeHtml(title)}
+                </option>
+              `;
+            })
+            .join("")}
+        </select>
+      </label>
+
       <nav class="lesson-list">
         ${lessons
           .map((lesson, index) => {
