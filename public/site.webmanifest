@@ -1,0 +1,21 @@
+{
+  "name": "Vite Practice Lab",
+  "short_name": "Vite Lab",
+  "description": "一个用于系统学习 Vite 的前端练习项目。",
+  "start_url": "/vite-practice-lab/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#646cff",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

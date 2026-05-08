@@ -1,0 +1,20 @@
+{
+  "name": "vite-practice-lab",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "devDependencies": {
+    "vite": "^8.0.11"
+  },
+  "dependencies": {
+    "highlight.js": "^11.11.1"
+  }
+}
